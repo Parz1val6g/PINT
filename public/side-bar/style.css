@@ -1,0 +1,11 @@
+* {
+    text-decoration: none;
+}
+
+body {
+    font-family: "Barlow", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    margin: 0;
+    padding: 0;
+}
