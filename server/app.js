@@ -1,21 +1,19 @@
- const express = require('express');
- const app = express();
- 
+const express = require('express');
+const app = express();
 
-//Configurações
+// Configurações
 app.set('port', process.env.PORT || 3000);
 
-
-//Middlewares
+// Middlewares
 app.use(express.json());
 
-//Rotas
-app.use('/teste',(req,res)=>{
- res.send("Rota TESTE.");
+// Rotas
+app.use('/teste', (req, res) => {
+    res.send('Rota TESTE.');
 });
-app.use('/',(req,res)=>{
- res.send("Hello World");
+
+app.use('/', (req, res) => {
+    res.send('Hello World!');
 });
-app.listen(app.get('port’), () => {
- console.log("Start server on port "+app.get('port'))
-}) 
+
+module.exports = app; // Export the app
