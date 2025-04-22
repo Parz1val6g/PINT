@@ -1,17 +1,8 @@
-console.log('Starting server setup...');
-const express = require('express');
-const app = express();
-const PORT = 3000;
-
-app.use(express.static('public'));
-
-app.get('/', (req, res) => {
-  console.log('Serving index.html...');
-  res.sendFile(__dirname + '/public/index.html');
-});
+const app = require('./app');
+const PORT = process.env.PORT || 5000;
+const connectDB = require('./config/db');
 
 app.listen(PORT, () => {
-  console.log(`Servidor está a correr em http://localhost:${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
-
-console.log('Server setup complete.');
+connectDB();

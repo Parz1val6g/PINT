@@ -1,19 +1,11 @@
 const express = require('express');
+const cors = require('cors');
+const routes = require('./routes');
+
 const app = express();
 
-// Configurações
-app.set('port', process.env.PORT || 3000);
-
-// Middlewares
+app.use(cors());
 app.use(express.json());
+app.use('/api', routes); // prefixo para as rotas
 
-// Rotas
-app.use('/teste', (req, res) => {
-    res.send('Rota TESTE.');
-});
-
-app.use('/', (req, res) => {
-    res.send('Hello World!');
-});
-
-module.exports = app; // Export the app
+module.exports = app;
