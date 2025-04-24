@@ -1,17 +1,12 @@
-// // Exemplo com MongoDB + Mongoose
-// const mongoose = require('mongoose');
+const { Pool } = require('pg');
+require('dotenv').config();
 
-// const connectDB = async () => {
-//   try {
-//     await mongoose.connect('mongodb://localhost:27017/nomedabase', {
-//       useNewUrlParser: true,
-//       useUnifiedTopology: true,
-//     });
-//     console.log('MongoDB connected!');
-//   } catch (err) {
-//     console.error(err.message);
-//     process.exit(1);
-//   }
-// };
+const pool = new Pool({
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+});
 
-// module.exports = connectDB;
+module.exports = pool;
