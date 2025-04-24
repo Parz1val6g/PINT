@@ -1,19 +1,13 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
+require('dotenv').config();
 
-// Configurações
-app.set('port', process.env.PORT || 3000);
+app.use(cors());
+const userRoutes = require('./routes/user.route');
 
-// Middlewares
 app.use(express.json());
+app.use('/users', userRoutes);
 
-// Rotas
-app.use('/teste', (req, res) => {
-    res.send('Rota TESTE.');
-});
-
-app.use('/', (req, res) => {
-    res.send('Hello World!');
-});
-
-module.exports = app; // Export the app
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
