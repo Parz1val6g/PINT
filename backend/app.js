@@ -2,12 +2,12 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 require('dotenv').config();
+const path = require('path');
+const router = require('./routes/index');
 
 app.use(cors());
-const userRoutes = require('./routes/user.route');
-
 app.use(express.json());
-app.use('/users', userRoutes);
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/api', router);
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+module.exports = app;
