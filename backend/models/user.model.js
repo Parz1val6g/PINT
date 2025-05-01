@@ -1,7 +1,7 @@
-const db = require('./db');
+const db = require('../config/db');
 
 async function getAllUsers() {
-  const result = await db.query('SELECT * FROM users');
+  const result = await db.query('SELECT * FROM utilizadores');
   return result.rows;
 }
 

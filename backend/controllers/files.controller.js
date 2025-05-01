@@ -1,5 +1,5 @@
 // controllers/user.controller.js
-const User = require('../models/User');
+const User = require('../models/files.model');
 
 exports.getUsers = async (req, res) => {
   const users = await User.find();
