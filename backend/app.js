@@ -4,10 +4,12 @@ const cors = require('cors');
 require('dotenv').config();
 
 app.use(cors());
-const userRoutes = require('./routes/user.route');
-
 app.use(express.json());
-app.use('/users', userRoutes);
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+const userRoutes = require('./routes/user.route');
+const filesRoutes = require('./routes/files.route');
+
+app.use('/users', userRoutes);
+app.use('/files',filesRoutes);
+
+module.exports = app;
