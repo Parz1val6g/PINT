@@ -19,12 +19,24 @@ exports.getUsers = async (req, res) => {
   }
 };
 
+// exports.createUser = async (req, res) => {
+//   const { name, email } = req.body;
+//   try {
+//     const newUser = await userModel.createUser(name, email);
+//     res.status(201).json(newUser);
+//   } catch (err) {
+//     res.status(500).json({ message: 'Erro ao criar utilizador'+err });
+//   }
+// };
 exports.createUser = async (req, res) => {
-  const { name, email } = req.body;
+  const { descricao, contexto, nome } = req.body;
+  console.log('Valores recebidos:', descricao, contexto, nome, '\n\n\n');
   try {
-    const newUser = await userModel.createUser(name, email);
+    const newUser = await userModel.createUser(descricao, contexto, nome);
     res.status(201).json(newUser);
   } catch (err) {
-    res.status(500).json({ message: 'Erro ao criar utilizador' });
+    res.status(500).json({ message: err });
   }
 };
+
+
