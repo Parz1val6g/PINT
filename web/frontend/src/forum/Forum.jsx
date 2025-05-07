@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+require('dotenv').config();
 import axios from 'axios';
 import './DropdownMenu.css';
 
@@ -17,7 +18,7 @@ function Forum() {
   }, []);
 
   const fetchPosts = async () => {
-    const response = await axios.get('http://localhost:5000/api/forum');
+    const response = await axios.get('http://localhost:5000/forum/posts/list');
     setPosts(response.data);
   };
 

@@ -1,4 +1,4 @@
-const fileModel = require('../models/file.model');
+const fileModel = require('../models/files.model');
 
 exports.upload = async (req, res) => {
   const { filePath } = req.params;
