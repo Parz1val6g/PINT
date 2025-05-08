@@ -40,7 +40,7 @@ exports.upload = async (req, res) => {
 
 exports.download = async (req, res) => {
   const { filename } = req.params;
-  const filePath = path.join(__dirname, '..', 'uploads', filename);
+  const filePath = path.join(__dirname, '..', 'files', filename);
 
   if (!fs.existsSync(filePath)) {
     return res.status(404).json({ message: 'Ficheiro não encontrado' });
