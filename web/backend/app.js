@@ -10,6 +10,6 @@ const userRoutes = require('./routes/user.route');
 const filesRoutes = require('./routes/files.route');
 
 app.use('/users', userRoutes);
-app.use('/files',filesRoutes);
+app.use('/files', filesRoutes);
 
 module.exports = app;

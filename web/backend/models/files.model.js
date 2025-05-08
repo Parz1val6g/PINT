@@ -1,48 +1,22 @@
-const supabase = require('../config/supabase'); // Importar o cliente configurado
-const fs = require('fs');
-const path = require('path');
-const mime = require('mime');
-const bucketName = process.env.BUCKET_NAME; // Nome do bucket no .env
+const db = require('/conf/db.js')
 require('dotenv').config();
 
-async function upload(filePath) {//upload('caminho/para/o/teu/ficheiro.ext');
+async function list(id = null) {
     try {
-        const fileName = path.basename(filePath);
-
-        const { data, error } = await supabase
-            .storage
-            .from(bucketName)
-            .upload(fileName, fs.readFileSync(filePath), {
-                contentType: mime.getType(filePath) || 'application/octet-stream',  //file type
-            });
-
-        if (error) {
-            console.error('Erro no upload:', error);
+        if (id) {
+            const result = await db.query('SELECT * FROM files WHERE id = $1', [id]);  // $1 é um placeholder
+            return result.rows[0];
         } else {
-            console.log('Upload feito com sucesso:', data);
-            console.log('URL pública:', `${process.env.SUPABASE_SERVER}/storage/v1/object/public/${bucketName}/${fileName}`);
+            const result = await db.query('SELECT * FROM files');
+            return result.rows;
         }
     } catch (err) {
-        console.error('Erro ao ler o ficheiro:', err);
+        console.error('Erro ao buscar ficheiro/s:', err);
+        throw new Error('Erro ao buscar ficheiro/s');
     }
 }
 
-async function download(fileName, downloadPath) {
-    try {
-        const { data, error } = await supabase
-            .storage
-            .from(bucketName)
-            .download(fileName);
-
-        if (error) {
-            console.error('Erro ao obter o ficheiro:', error);
-        } else {
-            fs.writeFileSync(downloadPath, Buffer.from(await data.arrayBuffer()));
-            console.log(`Ficheiro "${fileName}" guardado em: ${downloadPath}`);
-        }
-    } catch (err) {
-        console.error('Erro ao guardar o ficheiro:', err);
-    }
+async function db_save({ name, path, type, extension }) {
+    return db.query('INSERT INTO files (name, path, type, extension) VALUES ($1, $2, $3, $4)', [name, path, type, extension]);
 }
-
-module.exports = { upload, download }
+module.exports = { list, db_save }
