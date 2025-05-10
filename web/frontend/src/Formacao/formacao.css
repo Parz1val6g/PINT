@@ -1,0 +1,36 @@
+.formacao-container {
+  padding: 20px;
+}
+.formacao-title,
+.formacao-chart-title,
+.formacao-list-title {
+  font-weight: 600;
+}
+.formacao-card {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.formacao-card-title {
+  font-size: 1.1rem;
+}
+.formacao-card-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.chart-wrapper {
+  width: 100%;
+  max-width: 400px;
+}
+.formacao-list-item {
+  font-weight: 500;
+}
+.text-sidebar {
+  color: #212529 !important;
+}
+
+.formacao-card {
+  background-color: #ffffff !important;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}

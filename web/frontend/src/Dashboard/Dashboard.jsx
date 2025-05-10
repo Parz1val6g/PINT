@@ -61,15 +61,23 @@ const Dashboard = () => {
     ],
   };
 
+  const formacoesPassadas = data.formacoes.filter(f => f.tipo === "passada");
+  const formacoesFuturas = data.formacoes.filter(f => f.tipo === "futura");
+
   return (
     <Container className="mt-4 dashboard-container">
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2 className="m-0 dashboard-title">Dashboard</h2>
-        <div className="search-bar">
-          <InputGroup>
-            <Form.Control type="text" placeholder="Pesquisar..." className="search-input" />
-          </InputGroup>
+      <div className="d-flex align-items-center justify-content-between mb-4 w-100">
+        <h2 className="dashboard-title m-0 text-start">Dashboard</h2>
+        <div className="flex-grow-1 d-flex justify-content-center">
+          <Form style={{ maxWidth: "300px", width: "100%" }}>
+            <Form.Control
+              type="text"
+              placeholder="Pesquisar..."
+              className="bg-white text-start"
+            />
+          </Form>
         </div>
+        <div style={{ width: 300 }} />
       </div>
 
       <Row className="mb-4 g-3">
@@ -130,6 +138,31 @@ const Dashboard = () => {
               <ListGroup.Item key={i} className="dashboard-list-item d-flex justify-content-between align-items-center">
                 <span>{f.nome}</span>
                 <Button variant="primary">Ver Formação</Button>
+              </ListGroup.Item>
+            ))}
+          </ListGroup>
+        </Col>
+      </Row>
+
+      <Row className="mt-5">
+        <Col md={6}>
+          <h5 className="dashboard-list-title">Formações Já Dadas</h5>
+          <ListGroup className="dashboard-list">
+            {formacoesPassadas.map((f, i) => (
+              <ListGroup.Item key={i} className="dashboard-list-item d-flex justify-content-between align-items-center">
+                <span>{f.nome}</span>
+                <Button variant="secondary">Ver</Button>
+              </ListGroup.Item>
+            ))}
+          </ListGroup>
+        </Col>
+        <Col md={6}>
+          <h5 className="dashboard-list-title">Formações Futuras</h5>
+          <ListGroup className="dashboard-list">
+            {formacoesFuturas.map((f, i) => (
+              <ListGroup.Item key={i} className="dashboard-list-item d-flex justify-content-between align-items-center">
+                <span>{f.nome}</span>
+                <Button variant="success">Ver</Button>
               </ListGroup.Item>
             ))}
           </ListGroup>
