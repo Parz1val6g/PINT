@@ -18,6 +18,7 @@ exports.avaliarFormando = (req, res) => {
   if (!formando) return res.status(404).json({ message: 'Formando não encontrado' });
 
   formando.avaliado = true;
+  //erhgfdghtyjt
   formando.dataAvaliacao = new Date().toISOString().split('T')[0];
   formando.nota = nota;
   formando.observacoes = observacoes;
