@@ -29,4 +29,4 @@ const formacaoData = {
     ]
   };
   
-  export default formacaoData;
+module.exports = formacaoData; // ✅

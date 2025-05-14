@@ -1,0 +1,69 @@
+.formando-foto {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.container h2 {
+  font-weight: bold;
+  color: #333;
+}
+
+table th,
+table td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* Força a cor branca na tabela */
+table.bg-custom-white,
+table.bg-custom-white thead,
+table.bg-custom-white tbody,
+table.bg-custom-white tr,
+table.bg-custom-white td,
+table.bg-custom-white th {
+  background-color: #ffffff !important;
+  color: #343a40 !important;
+  border-color: #dee2e6 !important;
+}
+
+/* Corrige também a cor dos textos dos headers */
+table.bg-custom-white th {
+  font-weight: bold;
+}
+
+/* Remove fundo da área de paginação */
+.custom-pagination {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+/* Corrige aparência dos outros itens */
+.custom-pagination .page-link {
+  background-color: #ffffff !important;
+  color: #343a40 !important;
+  border: 1px solid #dee2e6 !important;
+}
+
+/* Corrige item ativo da paginação */
+.custom-pagination .page-item.active .page-link {
+  background-color: #0d6efd !important;
+  border-color: #0d6efd !important;
+  color: #fff !important;
+}
+
+/* Mantém a tabela com bordas arredondadas e sombra */
+.custom-rounded-table {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Remove bordas arredondadas das células */
+.custom-rounded-table td,
+.custom-rounded-table th {
+  border-radius: 0;
+}
+

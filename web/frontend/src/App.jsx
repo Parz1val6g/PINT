@@ -1,11 +1,10 @@
-<<<<<<< HEAD
 import React from 'react';
 import Forum from './forum/Forum.jsx';
 import ListaFormandos from './ListaFormandos/ListaFormandos.jsx';
 import Dashboard from './Dashboard/Dashboard.jsx';
 import Sidebar from './side-bar/side-bar.jsx';
 import Formacao from './Formacao/Formacao.jsx';
-import AvaliacaoPage from './Avaliacao/Avaliacao.jsx';
+import Avaliar from './Avaliar/Avaliar.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './side-bar/side-bar.css';
@@ -19,31 +18,11 @@ function App() {
         {/*<ListaFormandos/>*/}
         {/*<Dashboard/>*/}
         {/*<Formacao/>*/}
-        {<AvaliacaoPage/>}
+        {<Avaliar/>}
       </div>
     </div>
   );
 }
 
 export default App;
-=======
-import React from 'react';
-import Forum from './Forum.jsx';
-import Sidebar from './side-bar/side-bar.jsx';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import './side-bar/side-bar.css';
 
-function App() {
-  return (
-    <div className="d-flex">
-      <Sidebar />
-      <div className="flex-grow-1 bg-light">
-        <Forum />
-      </div>
-    </div>
-  );
-}
-
-export default App;
->>>>>>> 8d8dc97c500b285edac38ab10bb059922967984c

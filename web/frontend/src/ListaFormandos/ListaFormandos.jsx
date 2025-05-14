@@ -33,9 +33,22 @@ const ListaFormandos = () => {
   const porPagina = 5;
   
   useEffect(() => {
-    axios.get("http://localhost:5000/api/formandos")
-      .then(res => setFormandos(res.data))
-      .catch(err => console.error("Erro ao buscar formandos:", err));
+  const url = `${import.meta.env.VITE_API_URL}/api/formandos`;
+  console.log("Buscando formandos de:", url);
+
+  axios.get(url)
+    .then(res => {
+      console.log("Formandos recebidos:", res.data);
+      if (Array.isArray(res.data)) {
+        setFormandos(res.data);
+      } else {
+        console.warn("Resposta inesperada da API:", res.data);
+        setFormandos([]);
+      }
+    })
+    .catch(err => {
+      console.error("Erro ao buscar formandos:", err.message);
+    });
   }, []);
 
   const filtrados = formandos.filter(f =>

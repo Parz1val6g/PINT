@@ -32,7 +32,7 @@ const Formacao = () => {
   const [novaAula, setNovaAula] = useState({ titulo: "", descricao: "", link: "", horaInicio: "", horaFim: "", dataInicio: "", dataFim: "" });
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/formacao")
+    axios.get(`${import.meta.env.VITE_API_URL}/api/formacao`)
       .then(res => setData(res.data))
       .catch(err => {
         console.error("Erro ao buscar dados da formação:", err);
